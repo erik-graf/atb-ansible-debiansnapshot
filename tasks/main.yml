@@ -1,3 +1,9 @@
+- name: Switch to archive mirror because of bullseye-backports
+  ansible.builtin.replace:
+    path: /etc/apt/sources.list
+    regexp: 'deb.debian.org/debian bullseye-backports'
+    replace: 'archive.debian.org/debian bullseye-backports'
+
 - name: Install apt-https-transport
   become: yes
   apt:
